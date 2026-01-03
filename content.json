@@ -1,0 +1,307 @@
+{
+  "Format": "1.6",
+  "Changes": [
+      // load characters
+      {
+         "Action": "Load",
+         "Priority": "High",
+         "Target": "Characters/Jas",
+         "FromFile": "assets/Sprites/Jas.png"
+      },
+      // load portraits
+      {
+         "Action": "Load",
+         "Target": "Portraits/Jas",
+         "FromFile": "assets/Portraits/Jas.png"
+      },
+      // load dialogue
+      {
+         "LogName": "Jas Dialogue Include",
+         "Action": "Include",
+         "FromFile": "assets/Dialogue/JasDialogue.json"
+      },
+      //节日邀请
+      {
+         "Action": "EditData",
+         "Target": "Strings/Characters",
+         "Entries": {
+            "MovieInvite_Spouse_Jas": "要邀请贾斯跳舞吗？"
+         }
+      },
+      //动画
+      {
+         "Action":"EditData",
+         "Target":"Data/animationDescriptions",
+         "Entries":{
+         "jas_tiao":"16 17 18 19/16 16 17 17 18 18 19 19/16 17 18 19 16",
+         "jas_kan":"22/22/22",
+         "jas_zo":"26 27/26 26 26 27 26 26 26 26 26 26 27/26",
+         "jas_kansu":"30 31/31 31 31 31 31 31 31 31 31 31 31 31 31 31 31 31/30",
+         }
+      },
+      //第二年对话
+      {
+         "LogName": "Load Blank",
+         "Action": "Load",
+         "Target": "Characters/Dialogue/Jas, Characters/schedules/Jas",
+         "FromFile": "assets/Dialogue/blank.json"
+      },
+      {
+         "Action": "Include",
+         "FromFile": "assets/Dialogue/JasDialogueY2.json",
+         "When": {
+         "query: {{Year}} >= 2": true
+         }
+      },
+      //行程贾斯
+      {
+         "LogName": "NPC Schedules Jas",
+         "Action": "EditData",
+         "Target": "Characters/schedules/Jas",
+         "Entries": {
+         "spring_Mon":"900 AnimalShop 7 5 0/930 SeedShop 11 20 2/1200 AnimalShop 28 15 0/1230 AnimalShop 25 15 0/1300 Forest 38 10 2 jas_tiao/1600 AnimalShop 1 7 1",
+         "spring_Tue": "900 AnimalShop 7 5 0/930 Forest 85 49 2 jas_kansu/1200 SamHouse 11 23 3/1400 AnimalShop 1 7 1",
+         "spring_Wed": "900 AnimalShop 7 5 0/930 AnimalShop 28 15 0/1000 AnimalShop 25 15 0/1100 ArchaeologyHouse 19 10 1  jas_kan/1400 Forest 85 49 2 jas_kansu/1600 AnimalShop 1 7 1",
+         "spring_Thu": "930 Forest 99 100 2/1000 Forest 85 49 2 jas_kansu/1300 Town 23 12 2/1500 SeedShop 11 20 2/1700 AnimalShop 28 15 0/1830 AnimalShop 25 15 0/1900 Forest 38 10 2 jas_tiao/2000 AnimalShop 1 7 1",
+         "spring_Fri": "930 Town 36 89 2/1200 ArchaeologyHouse 19 10 3 jas_kan/1500 AnimalShop 1 7 1/1730 Forest 85 49 2 jas_kansu/1900 AnimalShop 1 7 1",
+         "spring_Sat": "900 AnimalShop 7 5 0/930 AnimalShop 25 15 0/1200 Forest 87 49 2 jas_zo/1500 Saloon 24 17 2/2300 AnimalShop 1 7 1",
+         "spring_Sun": "930 Forest 38 10 2 jas_tiao/1200 ArchaeologyHouse 19 10 1  jas_kan/1800 Saloon 32 17 1/2000 AnimalShop 1 7 1",
+         "summer_Mon": "900 Forest 85 49 2 jas_kansu/1100 SeedShop 11 20 2/1300 Town 88 93 0/1500 AnimalShop 28 15 0/1630 AnimalShop 25 15 0/1700 AnimalShop 1 7 1",
+         "summer_Tue": "930 ArchaeologyHouse 19 10 1  jas_kan/1300 Town 88 94 0/1600 Saloon 24 17 2/2300 AnimalShop 1 7 1",
+         "summer_Wed": "900 ArchaeologyHouse 19 10 1  jas_kan/1000 ArchaeologyHouse 17 5 0/1400 ArchaeologyHouse 19 10 1  jas_kan/1500 Forest 38 10 2 jas_tiao/1800 Forest 85 49 2 jas_kansu/2100 AnimalShop 1 7 1",
+         "summer_Thu": "900 AnimalShop 28 15 0/930 AnimalShop 25 15 0/1000 Beach 51 20 2/1400 Town 51 87 0/1600 Saloon 24 17 2/1800 AnimalShop 1 7 1",
+         "summer_Fri": "900 AnimalShop 28 15 0/940 Town 36 88 2/1600 AnimalShop 1 7 1",
+         "summer_Sat": "930 SeedShop 11 20 2/1200 Town 23 12 2/1400 Town 88 93 0/1600 Forest 85 49 2 jas_kansu/1800 AnimalShop 1 7 1",
+         "summer_Sun": "930 Town 10 94 2/1200 Forest 85 49 2 jas_kansu/1500 Saloon 32 17 1/1700 AnimalShop 1 7 1",
+         "fall_Mon": "930 Forest 85 49 2 jas_kansu/1200 AnimalShop 1 7 1/1600 AnimalShop 1 7 1",
+         "fall_Tue": "930 Forest 85 49 2 jas_kansu/1200 AnimalShop 1 7 1/1600 AnimalShop 1 7 1",
+         "fall_Wed": "930 ArchaeologyHouse 19 10 1  jas_kan/1400 BusStop 19 14 0/1600 AnimalShop 1 7 1",
+         "fall_Thu": "930 Forest 38 10 2 jas_tiao/1200 Beach 51 20 2/1500 Saloon 24 17 2/2300 AnimalShop 1 7 1",
+         "fall_Fri": "900 ArchaeologyHouse 19 10 1  jas_kan/1200 SeedShop 11 20 2/1400 Forest 85 49 2 jas_kansu/1700 AnimalShop 1 7 1",
+         "fall_Sat": "930 Forest 85 49 2 jas_kansu/1600 AnimalShop 1 7 1",
+         "fall_Sun": "930 Forest 99 100 2/1200 Forest 87 49 2 jas_zo/1500 Saloon 32 17 1/1800 AnimalShop 1 7 1",
+         "winter_Mon": "930 AnimalShop 3 15 0/1200 Forest 87 49 2 jas_zo/1600 AnimalShop 6 6 1",
+         "winter_Tue": "930 Forest 86 18 0/1200 SeedShop 11 20 2/1600 AnimalShop 1 7 1",
+         "winter_Wed": "930 AnimalShop 7 5 0/1200 AnimalShop 4 5 0/1230 Beach 51 20 2/1600 AnimalShop 1 7 1",
+         "winter_Thu": "930 Mountain 30 9 3/1200 Beach 51 20 2/1600 AnimalShop 1 7 1",
+         "winter_Fri": "930 AnimalShop 7 5 0/1200 Forest 38 10 2 jas_tiao/1300 Forest 87 49 2 jas_zo/1500 Forest 85 49 2 jas_kansu/1600 AnimalShop 1 7 1",
+         "winter_Sat": "930 ArchaeologyHouse 19 10 1  jas_kan/1200 SeedShop 11 20 2/1300 SamHouse 11 23 3/1600 AnimalShop 1 7 1",
+         "winter_Sun": "930 AnimalShop 7 5 0/1000 SeedShop 11 20 2/1200 Saloon 32 17 1/1400 Forest 85 49 2 jas_kansu/1600 AnimalShop 1 7 1",
+         "rain": "930 AnimalShop 2 5 0/1100 AnimalShop 7 5 0/1700 AnimalShop 1 7 1",
+         "GreenRain": "610 AnimalShop 23 14 2"
+         }
+      },
+      //雨天
+      {
+         "Action":"EditData",
+         "Target":"Characters/Dialogue/rainy",
+         "Entries":{
+           "Jas":"@哥哥？！$16#$b#你怎么被雨追着跑一样，全身都湿透了！快点进来，别站在门口吹风。$15#$b#我、我先去拿毛巾...再给你倒点热水。$17#$b#*小声嘀咕*真是的，总是这么不让人省心。$17#$b#不过...看到你平安回来就好了。$2"
+         },
+         "When":{
+           "Hearts:Jas":"0,1,2,3"
+         }
+      },
+      {
+      "Action":"EditData",
+         "Target":"Characters/Dialogue/rainy",
+         "Entries":{
+            "Jas":"唉，@哥哥...#$b#一看你的样子就知道，又是被雨淋回来的吧。$b#先坐下来烤会儿火，别急着说话，我去拿毛巾。$2#$b#下次要是下雨，记得早点回来...我会担心的。"
+         },
+         "When":{
+            "Hearts:Jas":"4,5,6,7",
+            "Hearts:Vincent":"4,5,6,7"
+         }
+      },
+      {
+      "Action":"EditData",
+         "Target":"Characters/Dialogue/rainy",
+         "Entries":{
+            "Jas":"哇！你什么时候站在那里的！$13#$b#@哥哥，你是不是又没打伞？头发都湿成这样了。$13#$b#真是的...$11#$b#要是你哪天真感冒了，我可要一直守着你念叨到你好起来。"
+         },
+         "When":{
+            "Hearts:Jas":"8,9,10"
+         }
+      }       
+      //人物可攻略
+      {
+         "Action": "EditData",
+         "Target": "Data/Characters",
+         "Fields": {
+            "Jas": {
+               "CanBeRomanced": true
+            }
+         }
+      },
+      //事件
+      {
+         "LogName":"Jas Event 1",
+         "Action":"EditData",
+         "Target":"Data/Events/forest",
+         "Entries":{
+           "598462549/f Jas 100/t 1200 1400/w sunny/z summer fall winter":"spring2/44 10/Jas 41 10 2/pause 1500/skippable/showFrame Jas 30 /animate Jas false true 3000 30 /pause 3000/emote Jas 40/warp farmer 57 15/move farmer -8 0 3/move farmer 0 -3 3/move farmer -8 0 0/speak Jas \"@？我在看书呢...如果你只是路过的话，可以随便逛逛。$3\"/pause 2000/emote farmer 8/pause 500/emote Jas 8/speak Jas \"...$5\"/pause 2000/speak Jas \"...$3#$b#不过，要是你不嫌无聊的话，也可以坐下来陪我一会儿。\"/pause 500/move farmer 0 -1 3/move farmer 1 0 0/move farmer 0 -1 2/speak Jas \"我平时不太知道该做什么，所以才会一个人跑来这里看书。#$b#其实...有点孤单。$2\"/pause 500/move Jas 0 4 0/move Jas 1 0 0/pause 500/speak Jas \"所以今天遇到你，我真的挺开心的。已经很久没有人愿意陪我安静待着了。$2#$b#刚刚我有点紧张...怕你只是随便走走，并不是想见我。$4\"/pause 1000/emote Jas 28/emote farmer 32/speak Jas \"啊...我是不是耽误你时间了？你今天应该还有很多事要忙吧。$3#$b#那...下次再聊，好吗？$1\"/pause 500/move Jas 17 0 0/pause 500/end"
+         }
+      },
+         {
+         "LogName":"Jas Event 2",
+         "Action":"EditData",
+         "Target":"Data/Events/Beach",
+         "Entries":{
+            "254698462/f Jas 200/t 1600 1800/w sunny/z spring fall winter":"spring2/42 23/Jas 41 24 2 farmer 42 15 2/pause 1500/skippable/showFrame Jas 26 /animate Jas false true 3000 26 /emote Jas 40/speak Jas \"...$2\"/move farmer 0 9 2/emote farmer 8/pause 500/speak Jas \"啊，是@啊。我没事，只是来这边看看海。$2\"/pause 2000/emote farmer 60/pause 5000/speak Jas \"不知道为什么，每次心里有点乱的时候都会被你碰到。$2#$b#说不定你真的是专门来拯救我的？$3#$b#哈哈，开玩笑的啦，不过跟你说话之后心情确实好多了。\"/pause 500/emote Jas 56/pause 500/end"
+         }
+      },
+         {
+         "LogName":"Jas Event 3",
+         "Action":"EditData",
+         "Target":"Data/Events/forest",
+         "Entries":{
+            "136598456/f Jas 300/t 1800 2200/w rainy/z spring summer winter":"spring2/82 99/Jas 82 99 2 farmer 83 90 2/pause 500/skippable/emote Jas 12/message \"喂！\"/jump Jas 7/move farmer 0 9 2 true/pause 500/emote Jas 12/pause 5000/speak Jas \"啊...老实说，你刚刚真的吓到我了。$15#$b#我没事，只是最近有点不顺，就想一个人待着，结果还碰上下雨。\"/pause 500/emote Jas 12/speak Jas \"...一开始甚至想着干脆淋一会儿算了。$2#$b#不过没你想得那么糟啦。$2\"/pause 500/question fork1 \"...#你不是要跳崖吗？\"/fork hhhh/pause 200/speak Jas \"我在你心里到底是经历了什么才会被这么误会。$15\"/pause 500/end",
+            "hhhh":"pause 200/emote Jas 40/speak Jas \"...笨蛋哥哥。\"/emote farmer 32/pause 5000/speak Jas \"不过，谢谢你赶过来。$17\"/end"
+         }
+      },
+         {
+         "LogName":"Jas Event 4",
+         "Action":"EditData",
+         "Target":"Data/Events/farm",
+         "Entries":{
+            "365948625/t 1000 1200/f Jas 400/z fall spring summer":"spring3/64 15/farmer 64 15 2 Jas 60 17 0/skippable/speak Jas \"嗨，@哥哥。那个...我不知道你今天有没有好好吃饭。#$b#玛妮姑姑做多了一些，我想着你平时总是随便应付，就给你送点过来。[207]$17\"/move Jas 0 1 1/move Jas 15 0 1/end"
+         }
+      },
+      {
+         "LogName":"Jas Event 5",
+         "Action":"EditData",
+         "Target":"Data/Events/Town",
+         "Entries":{
+            "659875643/t 700 1000/f Jas 600/w sunny/z fall spring winter/d Mon Tue Wed Thu Fri Sun":"spring3/110 27/farmer 108 36 0 Jas 109 27 0/emote Jas 8/skippable/speak Jas \"买哪个好呢...$3\"/move farmer 0 -7 1/move farmer 2 0 0/move farmer 0 -2 0/emote farmer 8/move farmer 0 0 3/pause 500/question fork1 \"...#你成绩这么好居然还需要看书？！#等一下，你该不会被幽灵附身了吧！#你在烦恼什么吗？\"/fork jjjj/pause 200/emote farmer 16/move Jas 0 0 1/startJittering/jump farmer 8/emote Jas 8/speak Jas \"哪有幽灵会白天跑出来啦。$15\"/pause 500/emote Jas 40/pause 500/speak Jas \"哥哥，你老实说，你是不是也偷偷熬夜看书或者小说？$15#$b#我可是会担心的，熬夜真的很伤身体。$3#$b#你每天干活已经够累了，要是再把身体弄坏了怎么办？$5#$b#而且...要是你倒下了，被坏人盯上怎么办？$10#$b#...当然，如果你愿意让我照顾你的话，我也不是不行。$17\"/pause 2000/ambientLight 60 120 100/stopJittering/message \"停！\"/stopGlowing/emote farmer 12/emote Jas 56/emote farmer 28/pause 500/end",
+            "jjjj":"pause 200/emote Jas 60/speak Jas \"啊，是哥哥啊。我在想给潘妮老师买什么礼物，她生日快到了。$0\"/pause 500/speak Jas \"可是她好像什么书都看过了，我有点拿不定主意。$3\"/message \"她一直待在图书馆，或许可以考虑别的礼物。\"/speak Jas \"！对哦，我怎么没想到这个。#$b#果然我也有不擅长的地方...幸好有你在。$13\"/pause 500/speak Jas \"不说了，我得赶紧去准备礼物了！哥哥明天见。$1\"/pause 500/move Jas 0 6 2/move Jas -3 0 3/move Jas 0 3 3/emote farmer 32/end"
+         }
+      },
+      {
+         "LogName":"Jas Event 7",
+         "Action":"EditData",
+         "Target":"Data/Events/Town",
+         "Entries":{
+            "695483615/t 900 1400/f Jas 1500/f Vincent 1600/w sunny/z summer fall spring":"spring3/15 89/farmer 0 91 1 Jas 14 88 2 Vincent 15 88 2/move farmer 12 0 1 true/pause 500/skippable/pause 500/textAboveHead Jas \"我说你啊...\"/pause 3000/textAboveHead Vincent \"...这话听着像是在说你自己吧？\"/pause 3000/emote Jas 8/speak Jas \"等等！\"/pause 500/move Jas 0 3 2/move Jas -1 0 3/emote farmer 8/pause 500/message \"怎么了？\"/emote Vincent 8/pause 500/speak Jas \"你好像有点冷，把我的围巾拿去用吧？$18\"/emote Vincent 16/jump Vincent 11/pause 1000/textAboveHead Vincent \"贾斯！！！\"/pause 1000/speak Jas \"好了，你快去忙吧。$18#$b#...不用管文茜，她今天考试没考好，心情有点差。$18\"/end"
+         }
+      },       
+      //节日
+      {
+         "LogName":" Hearts 0 - 4 Festival Egg Festival - spring13.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/spring13",
+         "Entries":{
+           "Jas":"今年的鸡蛋全都是玛妮姑姑农场里的成果呢。$1#$b#@，我们一起比赛，看谁捡得又快又多吧！我可不会轻易输的哦。$13"
+         }
+      },
+      {
+         "LogName":" Hearts 0 - 4 Festival Flower Dance - spring24.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/spring24",
+         "When":{
+            "Hearts:Jas":"0, 1, 2, 4"
+         },
+         "Entries":{
+            "Jas":"哥哥你知道吗？#$b#以前我和文茜还认真讨论过谁更适合当花之女神呢。$1#$b#现在想想还真有点不好意思。"
+         }
+      },
+      {
+         "LogName":" Hearts 4 - 7 Festival Flower Dance - spring24.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/spring24",
+         "When":{
+            "Hearts:Jas":"4, 5, 6, 7"
+         },
+         "Entries":{
+            "Jas":"@哥哥，你觉得这些舞步好看吗？#$b#要是让你选的话...你会想和谁一起跳呢？$1"
+         }
+      },
+      {
+         "LogName":" Hearts 8 - 10 Festival Flower Dance - spring24.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/spring24",
+         "When":{
+            "Hearts:Jas":"8, 9, 10"
+         },
+         "Entries":{
+            "Jas":"@哥哥，今年...要不要和我一起跳舞？$0#$b#我可是偷偷找海莉姐姐练了很久，就为了站在你身边的时候不出丑。$13"
+         }
+      },
+      {
+         "LogName":" Hearts 0 - 4 Festival Luau - summer11.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/summer11",
+         "When":{
+            "Hearts:Jas":"0, 2, 4"
+         },
+         "Entries":{
+            "Jas":"哥哥！$0#$e#你往汤里放了什么呀？不管是什么，只要是@选的，我就觉得肯定不会难喝。$1"
+         }
+      },
+      {
+         "LogName":" Hearts 4 - 8 Festival Luau - summer11.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/summer11",
+         "When":{
+            "Hearts:Jas":"4, 6, 8"
+         },
+         "Entries":{
+            "Jas":"哥哥，这锅汤你还是少喝一点比较好。$0#$e#我刚刚看到有人偷偷往里面放了很奇怪的东西...$4"
+         }
+      },
+      {
+         "LogName":" Hearts 0 - 4 Festival Moonlight Jellies - summer28.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/summer28",
+         "When":{
+            "Hearts:Jas":"0, 2, 4"
+         },
+         "Entries":{
+            "Jas":"居然能和@一起站在这里看海。$0#$e#感觉这个夜晚都变得不真实了。#$b#因为你在我身边，我心跳得有点快。$1"
+         }
+      },
+      {
+         "LogName":" Hearts 4 - 8 Festival Moonlight Jellies - summer28.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/summer28",
+         "When":{
+            "Hearts:Jas":"4, 6, 8"
+         },
+         "Entries":{
+            "Jas":"今年也和@一起看月光水母呢。$0#$e#要是以后每一年你都愿意陪我来看...那就好了。$1"
+         }
+      },
+         {
+         "LogName":"Festival SDV Fair - fall16.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/fall16",
+         "Entries":{
+            "Jas":"嗨，哥哥！$0#$e#这些都是玛妮姑姑照顾的动物，是不是特别精神？$1#$b#不过...在我眼里，@才是最耀眼的那个。$4"
+         }
+      },
+         {
+         "LogName":"Festival Spirits Eve - fall27.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/fall27",
+         "Entries":{
+            "Jas":"好紧张又好兴奋！哥哥会不会害怕呀？$4#$e#要是真的怕了，也可以靠近我一点。$4#$b#今晚就让我来保护@哥哥吧。$1",
+            "Marnie":"自从认识@以后，贾斯整个人都开朗了不少，看着她这样我也放心多了。$1"
+         }
+      },
+         {
+         "LogName":"Festival Ice Festival - winter8.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/winter8",
+         "Entries":{
+            "Jas":"@哥哥，这么冷的天你有认真保暖吗？$0#$e#来，把手给我，我看看是不是又冻冰了。#$b#还有...雪球的事可别告诉文茜是我丢的哦。$1"
+         }
+      },
+         {
+         "LogName":"Festival Winter Star - winter25.xnb",
+         "Action":"EditData",
+         "Target":"Data/Festivals/winter25",
+         "Entries":{
+            "Jas":"@哥哥，今年的秘密朋友会不会是我呢？$0#$b#啊...不能说对吧。$3#$b#不过就算不是，只要能和你一起过这个节日，我就已经很满足了。$4#$b#希望明年、后年...也都还能这样。$1"
+         }
+      }       
+   ]
+}
